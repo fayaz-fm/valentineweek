@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rose Day 🌹</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .loveCard{
+      background: linear-gradient(135deg, rgba(255,77,125,.18), rgba(255,145,178,.18));
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .loveText{
+      font-size:16px;
+      line-height:1.9;
+      color:rgba(255,255,255,.95);
+      letter-spacing:0.3px;
+    }
+
+    .loveText p{
+      margin-bottom:18px;
+    }
+
+    .sign{
+      font-size:18px;
+      font-weight:600;
+      color:#ffd1dc;
+      text-align:right;
+      margin-top:24px;
+    }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(15px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    .roseIcon{
+      font-size:40px;
+      text-align:center;
+      margin-bottom:10px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-6px); }
+      100%{ transform:translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+<canvas id="hearts"></canvas>
+
+<div class="wrap">
+
+  <header>
+    <div class="badge">🌹 Rose Day • Feb 7, 2026</div>
+    <div class="badge" id="today"></div>
+  </header>
+
+  <section class="hero">
+
+    <div class="roseIcon">🌹</div>
+
+    <h1>Happy Rose Day <span id="herName">Anitha</span> 💖</h1>
+    <p class="sub">A little letter from my heart to yours…</p>
+
+    <div class="card loveCard" style="margin-top:18px">
+
+      <div class="loveText">
+
+        <p>
+          You are the sweetest rose in my heart garden 🌹💖,  
+          and if someone ever tries to pluck you from there,  
+          it would hurt me so much 🥺💔.
+        </p>
+
+        <p>
+          Just stay in my heart and keep growing  
+          as beautiful as you are 🌸✨.
+        </p>
+
+        <p>
+          I love you like you are my first ❤️,  
+          and I want to live with you  
+          where you will be my last 🤍💍.
+        </p>
+
+        <p>
+          Will I get this beautiful rose  
+          for my entire life? 🌹💞  
+          I promise I will take care of this rose  
+          and keep it as fresh as ever 🌹🌿✨.
+        </p>
+
+        <p class="sign">
+          Love you Thangam 💛💋  
+          — <span id="yourName">Fayaz</span>
+        </p>
+
+      </div>
+
+      <div style="margin-top:18px; text-align:center;">
+        <a class="btn" href="index.html">🏠 Back to Valentine Week</a>
+        <a class="btn primary" href="propose.html">💍 Next Surprise</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Made with ❤️ for <span id="herName">Anitha</span>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

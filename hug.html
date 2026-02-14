@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hug Day 🤗</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .loveCard{
+      background: linear-gradient(135deg, rgba(255,77,125,.18), rgba(255,145,178,.18));
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.1s ease;
+    }
+    .loveText{
+      font-size:16px;
+      line-height:1.95;
+      color:rgba(255,255,255,.95);
+      letter-spacing:0.2px;
+    }
+    .loveText p{ margin:0 0 16px; }
+    .sign{
+      font-size:18px;
+      font-weight:650;
+      color:#ffd1dc;
+      text-align:right;
+      margin-top:18px;
+    }
+    .iconTop{
+      font-size:42px;
+      text-align:center;
+      margin-bottom:8px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .sub2{ color: rgba(255,255,255,.75); margin-top:0; }
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(14px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    @keyframes float{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-6px); }
+      100%{ transform:translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+<canvas id="hearts"></canvas>
+
+<div class="wrap">
+  <header>
+    <div class="badge">🤗 Hug Day • Feb 12, 2026</div>
+    <div class="badge" id="today"></div>
+  </header>
+
+  <!-- MAIN (unlocked) -->
+  <section class="hero" id="main">
+    <div class="iconTop">🤗</div>
+
+    <h1>Happy Hug Day, <span id="herName">My Love</span> 🫂💖</h1>
+    <p class="sub sub2">A warm hug message… only for you 🤍</p>
+
+    <div class="card loveCard" style="margin-top:18px">
+      <div class="loveText">
+
+        <p><b>Thangam 🥺❤️</b><br>Happy Hug Day 🤗💞</p>
+
+        <p>
+          I just want to hug you all day 🫂💖
+        </p>
+
+        <p>
+          Whenever I’m happy, I’ll hug you 😄🤍<br>
+          Whenever I’m sad, I’ll hug you 🥺🫶<br>
+          Whenever I feel excited, I’ll hug you 🤩💕<br>
+          Whenever I feel anxious, I’ll hug you 😣🤍<br>
+          Whenever I feel stressed, I’ll hug you 😔🫂<br>
+          Whenever I feel moody, I’ll hug you 🙈💞<br>
+          Even when I’m angry, I’ll still hug you 😤➡️🤗<br>
+          No matter what… I’ll always hug you ❤️‍🔥🤍
+        </p>
+
+        <p>
+          Hugs are the most beautiful thing in a relationship 🫂✨<br>
+          Whenever we fight, at the end of the day,<br>
+          we should hug it out and sleep together peacefully 🥹🌙💖<br>
+          That means we never give up on each other 🤝❤️
+        </p>
+
+        <p>
+          I want your hug daily… no matter what mood you’re in 🥹🤗❤️<br>
+          I need your kiss before going out every day 😘💋💞<br>
+          Even after marriage, I want all of this forever 💍🏡❤️
+        </p>
+
+        <p>
+          I hope these video calls end soon 📱🥺<br>
+          so we can finally stay next to each other 🤍<br>
+          hug, cuddle, laugh, and do everything we love together 🫶✨❤️
+        </p>
+
+        <p class="sign">
+          — Forever your hug partner 🥹🤗💖<br>
+          <span id="yourName">Your Name</span>
+        </p>
+
+      </div>
+
+      <div style="margin-top:18px; text-align:center; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn" href="index.html">🏠 Back to Valentine Week</a>
+        <a class="btn primary" href="kiss.html">😘 Next Surprise</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCKED -->
+  <section class="hero" id="locked" style="display:none;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:44px; margin-bottom:10px;">🔒</div>
+      <h1 style="margin-bottom:8px;">Locked</h1>
+      <p class="sub">This page unlocks on <b>Feb 12, 2026</b>.</p>
+      <div style="margin-top:14px;">
+        <a class="btn primary" href="index.html">🏠 Back</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with ❤️ — <span id="yourName">Your Name</span></footer>
+</div>
+
+<script src="app.js"></script>
+<script src="week.js"></script>
+<script>
+  // Lock check (uses week.js unlocked() function)
+  if (typeof unlocked === "function" && !unlocked("2026-02-12")) {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("locked").style.display = "block";
+  }
+</script>
+</body>
+</html>

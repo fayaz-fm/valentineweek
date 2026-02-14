@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Favourite Songs 🎵</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="hearts"></canvas>
+
+<div class="wrap">
+  <header>
+    <div class="badge">🎵 Your Favourite 5 Songs Playlist</div>
+    <div class="badge" id="today"></div>
+  </header>
+
+  <section class="hero">
+    <h1>Your Favourite 5 Songs 🎶</h1>
+    <p class="sub">Tap a song to play. Only one plays at a time.</p>
+
+    <div class="card" style="margin-top:14px">
+      <div id="list"></div>
+      <p class="sub" id="note" style="margin-top:10px"></p>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="btn" href="index.html">🏠 Home</a>
+      <a class="btn" href="memories.html">📸 Memories</a>
+      <a class="btn" href="question.html">🌹 The Question</a>
+      <a class="btn primary" href="valentine.html">💖 Valentine</a>
+    </div>
+  </section>
+
+  <footer>Made for <span id="herName">My Love</span> 💘</footer>
+</div>
+
+<audio id="a0" src="./SONGS/SONG1.mp3"></audio>
+<audio id="a1" src="./SONGS/SONG2.mp3"></audio>
+<audio id="a2" src="./SONGS/SONG3.mp3"></audio>
+<audio id="a3" src="./SONGS/SONG4.mp3"></audio>
+<audio id="a4" src="./SONGS/SONG5.mp3"></audio>
+
+<script src="app.js"></script>
+<script>
+  const tracks = [
+    { title: "💞 Kadhaipoma — Our Late Night Feels 🌙✨", el: document.getElementById("a0") },
+    { title: "🌸 Paartha Mudhal Naale — First Sight Magic 💖", el: document.getElementById("a1") },
+    { title: "🌌 Yenge En Venilla — My Moon Girl 🌙💫", el: document.getElementById("a2") },
+    { title: "❤️‍🔥 Ranjha (Shershah) — Intense Love Vibes 🥺", el: document.getElementById("a3") },
+    { title: "🕊 Birds of a Feather — Forever Us 💘", el: document.getElementById("a4") }
+  ];
+
+  const list = document.getElementById("list");
+  const note = document.getElementById("note");
+  let current = -1;
+
+  function stop(i){
+    tracks[i].el.pause();
+    tracks[i].el.currentTime = 0;
+  }
+
+  function render(){
+    list.innerHTML = tracks.map((t, i) => `
+      <div style="
+        display:flex; align-items:center; justify-content:space-between;
+        gap:10px; padding:12px 14px; margin-bottom:10px;
+        border-radius:16px; background: rgba(255,255,255,.06);
+      ">
+        <div>${t.title}</div>
+        <button class="${current===i ? 'primary':''}" data-i="${i}">
+          ${current===i ? 'Pause' : 'Play'}
+        </button>
+      </div>
+    `).join("");
+
+    list.querySelectorAll("button").forEach(btn => {
+      btn.onclick = async (e) => {
+        const i = Number(e.target.getAttribute("data-i"));
+
+        try{
+          if(current === i){
+            tracks[i].el.pause();
+            current = -1;
+          } else {
+            if(current !== -1) stop(current);
+            await tracks[i].el.play();
+            current = i;
+          }
+          render();
+        }catch{
+          note.textContent = "Add song1.mp3 … song5.mp3 in the same folder (browser blocked autoplay).";
+        }
+      };
+    });
+  }
+
+  render();
+</script>
+</body>
+</html>

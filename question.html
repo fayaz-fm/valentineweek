@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Question 🌹</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="hearts"></canvas>
+
+<div class="wrap">
+  <header>
+    <div class="badge">🌹 One Question</div>
+    <div class="badge" id="today"></div>
+  </header>
+
+  <section class="hero">
+    <h1><span id="herName">My Love</span>… 💘</h1>
+    <p class="sub">Will you be my Valentine?</p>
+
+    <div class="card" style="margin-top:14px; text-align:center;">
+      <div style="font-size:22px; font-weight:800; margin-bottom:14px;">
+        Will you be my Valentine? 🌹
+      </div>
+
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <button class="primary" id="yesBtn">Yes 😍</button>
+        <button id="noBtn">No 🙈</button>
+      </div>
+
+      <p class="sub" id="note" style="margin-top:14px;"></p>
+      <div id="big" style="margin-top:10px; font-size:18px; color:rgba(255,255,255,.9)"></div>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="btn" href="index.html">🏠 Home</a>
+      <a class="btn" href="songs.html">🎵 Songs</a>
+      <a class="btn" href="memories.html">📸 Memories</a>
+      <a class="btn primary" href="valentine.html">💖 Valentine</a>
+    </div>
+  </section>
+
+  <footer>— <span id="yourName">Your Name</span></footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const note = document.getElementById("note");
+  const big = document.getElementById("big");
+
+  const hoverMessages = [
+    "Pls click YES 🥺💘",
+    "Pls don’t say NO 🙈",
+    "Don’t hang me like this 😭",
+    "Please… my heart is shaking 😅",
+    "Are you teasing me? 😏 click YES",
+    "No option is not available 😌",
+    "System error ❌ YES only",
+    "Don’t break my tiny heart 🥲",
+    "I’ll cry now 😭 just press YES",
+    "Please don’t reject me 😆💗",
+    "You know you love me 😌",
+    "Stop playing and click YES 😍",
+    "Be kind… press YES 🌹",
+    "Romantic emergency 🚨 YES only!",
+    "You touched NO… I felt that 💔😄"
+  ];
+
+  function confettiBurst(){
+    // Quick confetti using the same canvas
+    const canvas = document.getElementById("hearts");
+    const ctx = canvas.getContext("2d");
+    const W = canvas.width, H = canvas.height;
+
+    const pieces = Array.from({length:120}, () => ({
+      x: Math.random()*W,
+      y: -20,
+      vx: (Math.random()*2-1) * 2,
+      vy: (Math.random()*2+2) * 2,
+      s: (Math.random()*4+3) * 1.5,
+      a: Math.random()*Math.PI*2
+    }));
+
+    let frames = 0;
+    (function tick(){
+      frames++;
+      pieces.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += 0.12;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.a);
+        ctx.fillStyle = "rgba(255,209,220,.9)";
+        ctx.fillRect(-p.s/2, -p.s/2, p.s, p.s);
+        ctx.restore();
+      });
+      if(frames < 70) requestAnimationFrame(tick);
+    })();
+  }
+
+  yesBtn.onclick = () => {
+    note.textContent = `YAYYY!! 🎉 I love you so much, ${HER_NAME} 💖`;
+    big.textContent = "Best decision ever 😍💘";
+    confettiBurst();
+  };
+
+  noBtn.onmouseenter = () => {
+    const m = hoverMessages[Math.floor(Math.random()*hoverMessages.length)];
+    big.textContent = m;
+
+    const dx = (Math.random()*260) - 130;
+    const dy = (Math.random()*160) - 80;
+    noBtn.style.transform = `translate(${dx}px, ${dy}px)`;
+  };
+
+  noBtn.onclick = () => {
+    note.textContent = "No clicking allowed 😌 Just press YES 💘";
+    big.textContent = "This love story only has one option 😏";
+  };
+</script>
+</body>
+</html>

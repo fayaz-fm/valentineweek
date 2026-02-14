@@ -1,0 +1,79 @@
+:root{
+  --bg1:#0b1020;
+  --bg2:#2b0b1a;
+  --card: rgba(255,255,255,.08);
+  --txt: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --accent:#ff4d7d;
+  --radius: 22px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, sans-serif;
+  color:var(--txt);
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(255,77,125,.20), transparent 55%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+#hearts{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:28px 18px 64px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.badge{
+  background:rgba(255,255,255,.08);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+}
+
+.hero, .card{
+  background:rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  padding:22px;
+  backdrop-filter: blur(10px);
+}
+
+h1{margin:0 0 10px}
+.sub{color:var(--muted)}
+
+.btn, button{
+  padding:10px 14px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  background:rgba(255,255,255,.12);
+  color:white;
+  text-decoration:none;
+}
+
+.primary{
+  background:linear-gradient(135deg, #ff4d7d, #ff91b2);
+}
+
+footer{
+  margin-top:20px;
+  text-align:center;
+  color:var(--muted);
+}
+.topFix{
+  object-position: center 20%;   /* moves image down */
+}
